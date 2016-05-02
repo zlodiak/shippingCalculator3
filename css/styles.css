@@ -1,0 +1,59 @@
+/*
+INFO: 
+	project: shippingCalculator
+	browsers: opera/chrome/FF/ie9/safari
+	width: 
+	columns:
+	markup: Sergey Kalinin 05/2016 (prozaik81-2@yandex.ru)
+	use: jq, bootstrap, underscore, backbone
+	desc: 	
+	version 3
+*/	
+
+/****************************************************************************** COMMON_STYLES */
+.hide{
+	display: none !important;
+}
+
+.show{
+	display: block !important;
+}
+
+.not_valid{
+	border: 1px solid red;
+}
+
+.valid{
+	border: 1px solid #ccc;
+}
+
+.form-group {
+    margin-bottom: 0px;
+}
+
+h2{
+	margin-top: 0;
+}
+
+
+/****************************************************************************** GLOBAL_layout */
+/*.main-container{
+	width: 100%;
+}
+*/
+
+
+
+
+/****************************************************************************** GLOBAL_blocks: payment_modal */
+.payment_modal .shipping_options .input-group{
+	margin-bottom: 20px;
+}
+
+.payment_modal label:after{
+	content: ': ';
+}
+
+.payment_modal .form-group{
+	margin-bottom: 15px;
+}
