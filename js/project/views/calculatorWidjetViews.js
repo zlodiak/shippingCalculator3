@@ -2,9 +2,9 @@ APP.DepartureCityView = Backbone.View.extend({
 
   id: 'departureCityWidget',
 
-  template: _.template($('#DepartureCityTemplate').html()),
+  template: _.template($('#departureCityTemplate').html()),
 
-  render: function () {  console.log(1212, this.template())
+  render: function () {  
     this.$el.html(this.template());
     return this;
   } 
@@ -12,34 +12,16 @@ APP.DepartureCityView = Backbone.View.extend({
 });
 
 
-APP.CityOfDestinationView = Backbone.View.extend({    
+APP.DestinationCityView = Backbone.View.extend({   
 
-  tagName: 'div',
+  id: 'destinationCityWidget',
 
-  className: 'city_of_destination_container col-xs-6',
-
-  id: 'cityOfDestinationContainer',
-
-  template: _.template($('#cityOfDestinationTemplate').html()),
+  template: _.template($('#destinationCityTemplate').html()),
 
   render: function () {  
     this.$el.html(this.template());
     return this;
-  },
-
-  notValidMarkAdd: function(errorMessagesArr) {
-    this.$el.find('#fldCityOfDestination').removeClass('valid').addClass('not_valid');
-
-    this.$el.find('#errorMessageCityOfDestination').html('');
-    for(key in errorMessagesArr) {
-      this.$el.find('#errorMessageCityOfDestination').append(errorMessagesArr[key] + '<br>');
-    };    
-  },
-
-  validMarkAdd: function() {
-    this.$el.find('#fldCityOfDestination').removeClass('not_valid').addClass('valid');
-    this.$el.find('#errorMessageCityOfDestination').html('');
-  }  
+  } 
 
 });
 

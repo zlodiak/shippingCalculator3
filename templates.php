@@ -72,25 +72,33 @@
   </div>  
 </script>
 
-<script type="text/template" id="DepartureCityTemplate">
+
+<script type="text/template" id="departureCityTemplate">
   <div class="panel panel-default">
     <div class="panel-body row">
-      <h2 class="col-xs-12">Город отправления</h2>
+      <div class="col-xs-12">
+        <h2>Город отправления</h2>
+      </div>
+
       <div class="widget_content form-group col-xs-12">
-        <input type="text" class="form-control" id="fldCityOfDeparture">
-        <div id="errorMessageCityOfDeparture" class="help-block"></div>
+        <input type="text" class="form-control" id="fldDepartureCity">
+        <div id="errorMessageDepartureCity" class="help-block"></div>
       </div>
     </div>
   </div>
 </script>
 
-<script type="text/template" id="cityOfDestinationTemplate">
+
+<script type="text/template" id="destinationCityTemplate">
   <div class="panel panel-default">
     <div class="panel-body row">
-      <h2 class="col-xs-12">Город назначения</h2>
+      <div class="col-xs-12">
+        <h2>Город назначения</h2>
+      </div>
+
       <div class="widget_content form-group col-xs-12">
-        <input type="text" class="form-control" id="fldCityOfDestination">
-        <div id="errorMessageCityOfDestination" class="help-block"></div>
+        <input type="text" class="form-control" id="fldDestinationCity">
+        <div id="errorMessageDestinationCity" class="help-block"></div>
       </div>
     </div>
   </div>
