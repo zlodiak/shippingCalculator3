@@ -10,6 +10,10 @@
     </div> 
 
     <div class="row">
+      <div class="col-xs-12" id="shippingOptionsWidgetContainer"></div>
+    </div>     
+
+    <div class="row">
       <div class="col-xs-12">
         <div class="btn btn-default pull-right" id="calculatorSubmitButton">Рассчитать</div>
       </div>
@@ -17,6 +21,97 @@
 
   </div>
 </script>
+
+
+<script type="text/template" id="departureCityTemplate">
+  <div class="panel panel-default">
+    <div class="panel-body row">
+      <div class="col-xs-12">
+        <h2>Город отправления</h2>
+      </div>
+
+      <div class="widget_content form-group col-xs-12">
+        <input type="text" class="form-control" id="fldDepartureCity">
+        <div id="errorMessageDepartureCity" class="help-block"></div>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="destinationCityTemplate">
+  <div class="panel panel-default">
+    <div class="panel-body row">
+      <div class="col-xs-12">
+        <h2>Город назначения</h2>
+      </div>
+
+      <div class="widget_content form-group col-xs-12">
+        <input type="text" class="form-control" id="fldDestinationCity">
+        <div id="errorMessageDestinationCity" class="help-block"></div>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="shippingOptionsTemplate">
+  <div class="panel panel-default">
+    <div class="panel-body row">
+      <div class="col-xs-12">
+        <h2>Параметры груза</h2>
+      </div>
+
+      <div class="widget_content form-group col-xs-12">
+        <div class="row">
+          <div class="col-xs-6">
+            <label>Вес</label>
+            <input type="text" class="form-control" id="fldShippingOptionsWeight">
+            <div id="errorMessageShippingOptionsWeight" class="help-block"></div>
+          </div>
+
+          <div class="col-xs-6">
+            <label>Объём</label>
+            <input type="text" class="form-control" id="fldShippingOptionsVolume">  
+            <div id="errorMessageShippingOptionsVolume" class="help-block"></div>      
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="oversizedCargoTemplate">
+  <div class="panel panel-default">
+    <div class="panel-body row">
+      <h2 class="col-xs-12">
+        <input 
+          class="oversized_cargo_state_checkbox" 
+          id="oversizedCargoStateCheckbox" 
+          type="checkbox" 
+          <%= activeState %> 
+        >
+        <span>Негабаритный груз</span>
+      </h2>
+
+      <div class="widget_content form-group col-xs-12 <%= visibility %>">
+        <div class="">
+          <label>Вес</label>
+          <input type="text" class="form-control" id="fldOversizedCargoWeight">
+          <div id="errorMessageOversizedCargoWeight" class="help-block"></div>
+        </div>
+
+        <div class="">
+          <label>Объём</label>
+          <input type="text" class="form-control" id="fldOversizedCargoVolume">  
+          <div id="errorMessageOversizedCargoVolume" class="help-block"></div>      
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
 
 <script type="text/template" id="paymentModalTemplate">
   <!-- Modal payment -->
@@ -70,89 +165,4 @@
       </div>
     </div>
   </div>  
-</script>
-
-
-<script type="text/template" id="departureCityTemplate">
-  <div class="panel panel-default">
-    <div class="panel-body row">
-      <div class="col-xs-12">
-        <h2>Город отправления</h2>
-      </div>
-
-      <div class="widget_content form-group col-xs-12">
-        <input type="text" class="form-control" id="fldDepartureCity">
-        <div id="errorMessageDepartureCity" class="help-block"></div>
-      </div>
-    </div>
-  </div>
-</script>
-
-
-<script type="text/template" id="destinationCityTemplate">
-  <div class="panel panel-default">
-    <div class="panel-body row">
-      <div class="col-xs-12">
-        <h2>Город назначения</h2>
-      </div>
-
-      <div class="widget_content form-group col-xs-12">
-        <input type="text" class="form-control" id="fldDestinationCity">
-        <div id="errorMessageDestinationCity" class="help-block"></div>
-      </div>
-    </div>
-  </div>
-</script>
-
-
-<script type="text/template" id="shippingOptionsTemplate">
-  <div class="panel panel-default">
-    <div class="panel-body row">
-      <h2 class="col-xs-12">Параметры груза</h2>
-      <div class="widget_content form-group col-xs-12">
-        <div class="">
-          <label>Вес</label>
-          <input type="text" class="form-control" id="fldShippingOptionsWeight">
-          <div id="errorMessageShippingOptionsWeight" class="help-block"></div>
-        </div>
-
-        <div class="">
-          <label>Объём</label>
-          <input type="text" class="form-control" id="fldShippingOptionsVolume">  
-          <div id="errorMessageShippingOptionsVolume" class="help-block"></div>      
-        </div>
-      </div>
-    </div>
-  </div>
-</script>
-
-
-<script type="text/template" id="oversizedCargoTemplate">
-  <div class="panel panel-default">
-    <div class="panel-body row">
-      <h2 class="col-xs-12">
-        <input 
-          class="oversized_cargo_state_checkbox" 
-          id="oversizedCargoStateCheckbox" 
-          type="checkbox" 
-          <%= activeState %> 
-        >
-        <span>Негабаритный груз</span>
-      </h2>
-
-      <div class="widget_content form-group col-xs-12 <%= visibility %>">
-        <div class="">
-          <label>Вес</label>
-          <input type="text" class="form-control" id="fldOversizedCargoWeight">
-          <div id="errorMessageOversizedCargoWeight" class="help-block"></div>
-        </div>
-
-        <div class="">
-          <label>Объём</label>
-          <input type="text" class="form-control" id="fldOversizedCargoVolume">  
-          <div id="errorMessageOversizedCargoVolume" class="help-block"></div>      
-        </div>
-      </div>
-    </div>
-  </div>
 </script>

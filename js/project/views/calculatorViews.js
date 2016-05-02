@@ -2,8 +2,8 @@ APP.CalculatorView = Backbone.View.extend({
 
   initialize: function() {   
     this.departureCityWidget = new APP.DepartureCityView();   
-
     this.destinationCityWidget = new APP.DestinationCityView();
+    this.shippingOptionsWidget = new APP.ShippingOptionsView();
        
     this.render();
   },    
@@ -16,6 +16,7 @@ APP.CalculatorView = Backbone.View.extend({
     this.$el.html(this.template());
     this.$el.find('#departureCityWidgetContainer').html(this.departureCityWidget.render().el);
     this.$el.find('#destinationCityWidgetContainer').html(this.destinationCityWidget.render().el);
+    this.$el.find('#shippingOptionsWidgetContainer').html(this.shippingOptionsWidget.render().el);
     return this;
   }
 
