@@ -1,9 +1,11 @@
 window.APP = window.APP || {};
 
-APP.CityOfDepartureModel = Backbone.Model.extend({
+APP.CalculatorModel = Backbone.Model.extend({
   defaults: {
-    activeState: true,
-    cityName: undefined
+    departureCity: undefined,
+    destinationCity: undefined,
+    shippingOptionsWeight: undefined,
+    shippingOptionsVolume: undefined
   }, 
 
   validate: function(attrs) {   
