@@ -18,10 +18,6 @@ APP.CalculatorModel = Backbone.Model.extend({
     this._validateDepartureCity(attrs.departureCity);
     this._validateShippingOptionsWeight(attrs.shippingOptionsWeight);
 
-
-
-
-
     if(
       this.get('errorsDepartureCity').length != 0 ||
       this.get('errorsDestinationCity').length != 0 ||
