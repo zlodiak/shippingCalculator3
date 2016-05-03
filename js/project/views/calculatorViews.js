@@ -9,8 +9,6 @@ APP.CalculatorView = Backbone.View.extend({
     this.render();
   },    
 
-  el: $('#shippingCalculator'),
-
   template: _.template($('#calculatorTemplate').html()),
 
   render: function () {    
