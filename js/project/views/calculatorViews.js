@@ -35,6 +35,7 @@ APP.CalculatorView = Backbone.View.extend({
     console.log(destinationCity);
     console.log(shippingOptionsWeight);
     console.log(shippingOptionsVolume);
+    console.log(this.model);
 
     this.model.set({
       'departureCity': departureCity,
