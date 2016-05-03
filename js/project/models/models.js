@@ -41,8 +41,8 @@ APP.CalculatorModel = Backbone.Model.extend({
   },
 
   _validateDepartureCity: function(departureCity) { 
-    var emptyCheckDepartureCity = this.emptyCheck(departureCity), 
-        isNumCheckDepartureCity = this.isNumCheck(departureCity);
+    var emptyCheckDepartureCity = APP.valuesValidator.emptyCheck(departureCity), 
+        isNumCheckDepartureCity = APP.valuesValidator.isNumCheck(departureCity);
 
     if(emptyCheckDepartureCity) { 
       this.get('errorsDepartureCity').push(emptyCheckDepartureCity) 
@@ -54,10 +54,10 @@ APP.CalculatorModel = Backbone.Model.extend({
   },
 
   _validateShippingOptionsWeight: function(shippingOptionsWeight) {
-    var emptyCheckShippingOptionsWeight = this.emptyCheck(shippingOptionsWeight), 
-        negativeNumShippingOptionsWeight = this.negativeNumCheck(shippingOptionsWeight), 
-        nullNumShippingOptionsWeight = this.nullNumCheck(shippingOptionsWeight), 
-        isStrCheckShippingOptionsWeight = this.isStrCheck(shippingOptionsWeight);
+    var emptyCheckShippingOptionsWeight = APP.valuesValidator.emptyCheck(shippingOptionsWeight), 
+        negativeNumShippingOptionsWeight = APP.valuesValidator.negativeNumCheck(shippingOptionsWeight), 
+        nullNumShippingOptionsWeight = APP.valuesValidator.nullNumCheck(shippingOptionsWeight), 
+        isStrCheckShippingOptionsWeight = APP.valuesValidator.isStrCheck(shippingOptionsWeight);
 
     if(emptyCheckShippingOptionsWeight) { 
       this.get('errorsShippingOptionsWeight').push(emptyCheckShippingOptionsWeight) 
@@ -74,26 +74,7 @@ APP.CalculatorModel = Backbone.Model.extend({
     if(isStrCheckShippingOptionsWeight) { 
       this.get('errorsShippingOptionsWeight').push(isStrCheckShippingOptionsWeight) 
     };    
-  },  
-
-  emptyCheck: function(value) { 
-    if($.trim(value).length == 0) { return 'Это поле не может быть пустым' };
-  },
-
-  negativeNumCheck: function(value) { 
-    if(parseInt($.trim(value), 10) < 0) { return 'Это значение не может быть меньше нуля' };
-  },
-
-  nullNumCheck: function(value) { 
-    if(parseInt($.trim(value), 10) == 0) { return 'Это значение не может быть равно нулю' };
-  },
-
-  isNumCheck: function(value) { 
-    if(isNaN(parseInt($.trim(value), 10)) == false) { return 'Это значение не может быть цифрой' };
-  },
-
-  isStrCheck: function(value) { 
-    if(isNaN(parseInt($.trim(value), 10)) == true) { return 'Это значение должно быть цифрой' };
-  }            
+  }
+             
 });
 

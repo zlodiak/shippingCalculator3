@@ -6,6 +6,7 @@
 <script src="js/project/models/models.js"></script> 
 <script src="js/project/views/calculatorWidjetViews.js"></script> 
 <script src="js/project/views/calculatorViews.js"></script> 
+<script src="js/project/valuesValidator.js"></script> 
 <script src="js/project/helper.js"></script> 
 
 <script>
