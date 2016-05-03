@@ -16,6 +16,7 @@ APP.CalculatorModel = Backbone.Model.extend({
     this._resetErrors();
 
     this._validateDepartureCity(attrs.departureCity);
+    this._validateShippingOptionsWeight(attrs.shippingOptionsWeight);
 
 
 
@@ -47,20 +48,36 @@ APP.CalculatorModel = Backbone.Model.extend({
     var emptyCheckDepartureCity = this.emptyCheck(departureCity), 
         isNumCheckDepartureCity = this.isNumCheck(departureCity);
 
-    if(emptyCheckDepartureCity) { this.get('errorsDepartureCity').push(emptyCheckDepartureCity) };
-    if(isNumCheckDepartureCity) { this.get('errorsDepartureCity').push(isNumCheckDepartureCity) };    
+    if(emptyCheckDepartureCity) { 
+      this.get('errorsDepartureCity').push(emptyCheckDepartureCity) 
+    };
+
+    if(isNumCheckDepartureCity) { 
+      this.get('errorsDepartureCity').push(isNumCheckDepartureCity) 
+    };    
   },
 
-  _validateDestinationCity: function() {
-    var emptyCheckShippingOptionsWeight = this.emptyCheck(attrs.shippingOptionsWeight), 
-        negativeNumShippingOptionsWeight = this.negativeNumCheck(attrs.shippingOptionsWeight), 
-        nullNumShippingOptionsWeight = this.nullNumCheck(attrs.shippingOptionsWeight), 
-        isStrCheckShippingOptionsWeight = this.isStrCheck(attrs.shippingOptionsWeight);
+  _validateShippingOptionsWeight: function(shippingOptionsWeight) {
+    var emptyCheckShippingOptionsWeight = this.emptyCheck(shippingOptionsWeight), 
+        negativeNumShippingOptionsWeight = this.negativeNumCheck(shippingOptionsWeight), 
+        nullNumShippingOptionsWeight = this.nullNumCheck(shippingOptionsWeight), 
+        isStrCheckShippingOptionsWeight = this.isStrCheck(shippingOptionsWeight);
 
-    if(emptyCheckShippingOptionsWeight) { this.errorsShippingOptionsWeight.push(emptyCheckShippingOptionsWeight) };
-    if(negativeNumShippingOptionsWeight) { this.errorsShippingOptionsWeight.push(negativeNumShippingOptionsWeight) };
-    if(nullNumShippingOptionsWeight) { this.errorsShippingOptionsWeight.push(nullNumShippingOptionsWeight) };
-    if(isStrCheckShippingOptionsWeight) { this.errorsShippingOptionsWeight.push(isStrCheckShippingOptionsWeight) };    
+    if(emptyCheckShippingOptionsWeight) { 
+      this.get('errorsShippingOptionsWeight').push(emptyCheckShippingOptionsWeight) 
+    };
+
+    if(negativeNumShippingOptionsWeight) { 
+      this.get('errorsShippingOptionsWeight').push(negativeNumShippingOptionsWeight) 
+    };
+
+    if(nullNumShippingOptionsWeight) { 
+      this.get('errorsShippingOptionsWeight').push(nullNumShippingOptionsWeight) 
+    };
+
+    if(isStrCheckShippingOptionsWeight) { 
+      this.get('errorsShippingOptionsWeight').push(isStrCheckShippingOptionsWeight) 
+    };    
   },  
 
   emptyCheck: function(value) { 
