@@ -9,9 +9,25 @@ APP.CalculatorModel = Backbone.Model.extend({
   }, 
 
   validate: function(attrs) {   
-    var errorsArr = [];
+    var errorsDepartureCity = [],
+        errorsDestinationCity = [],
+        errorsShippingOptionsWeight = [],
+        errorsShippingOptionsVolume = [];
 
-    if(errorsArr.length != 0) { return errorsArr };
+
+    if(
+      errorsDepartureCity.length != 0 ||
+      errorsDestinationCity.length != 0 ||
+      errorsShippingOptionsWeight.length != 0 ||
+      errorsShippingOptionsVolume.length != 0 
+    ) { 
+      return {
+        'departureCity': errorsDepartureCity,
+        'destinationCity': errorsDestinationCity,
+        'shippingOptionsWeight': errorsShippingOptionsWeight,
+        'shippingOptionsVolume': errorsShippingOptionsVolume
+      };
+    };
   }  
 });
 

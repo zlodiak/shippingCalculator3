@@ -1,10 +1,10 @@
 APP.CalculatorView = Backbone.View.extend({  
 
   initialize: function() {   
-    this.calculatorModel = new APP.CalculatorModel();
-    this.departureCityWidget = new APP.DepartureCityView({model: this.calculatorModel});   
-    this.destinationCityWidget = new APP.DestinationCityView({model: this.calculatorModel});
-    this.shippingOptionsWidget = new APP.ShippingOptionsView({model: this.calculatorModel});
+    this.model = new APP.CalculatorModel();
+    this.departureCityWidget = new APP.DepartureCityView();   
+    this.destinationCityWidget = new APP.DestinationCityView();
+    this.shippingOptionsWidget = new APP.ShippingOptionsView();
        
     this.render();
   },    
@@ -19,7 +19,40 @@ APP.CalculatorView = Backbone.View.extend({
     this.$el.find('#destinationCityWidgetContainer').html(this.destinationCityWidget.render().el);
     this.$el.find('#shippingOptionsWidgetContainer').html(this.shippingOptionsWidget.render().el);
     return this;
-  }
+  },
+
+  events:{
+    'click #calculatorSubmitButton' : 'submit'
+  },
+
+  submit: function() { 
+    var departureCity =         this.$el.find('#fldDepartureCity').val(), 
+        destinationCity =       this.$el.find('#fldDestinationCity').val(), 
+        shippingOptionsWeight = this.$el.find('#fldShippingOptionsWeight').val(),
+        shippingOptionsVolume = this.$el.find('#fldShippingOptionsVolume').val();
+
+    console.log(departureCity);
+    console.log(destinationCity);
+    console.log(shippingOptionsWeight);
+    console.log(shippingOptionsVolume);
+
+    this.model.set({
+      'departureCity': departureCity,
+      'destinationCity': destinationCity,
+      'shippingOptionsWeight': shippingOptionsWeight,
+      'shippingOptionsVolume': shippingOptionsVolume
+    });
+
+    
+
+    if(this.model.isValid()) {
+      console.log('no validat errors');
+    } else {      
+      var validationErrorArr = this.model.validationError;
+      console.log(validationErrorArr);
+    };
+    
+  }  
 
 });
 
