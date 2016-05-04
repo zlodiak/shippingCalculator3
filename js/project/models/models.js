@@ -59,11 +59,6 @@ APP.CalcModel = Backbone.Model.extend({
         nullNumCheck = APP.valuesValidator.nullNumCheck(weight), 
         isStrCheck = APP.valuesValidator.isStrCheck(weight);
 
-        console.log(emptyCheck, ' empty res');
-        console.log(minusNumCheck, ' minusNumCheck res');
-        console.log(nullNumCheck, ' nullNumCheck res');
-        console.log(isStrCheck, ' isStrCheck res');
-
     if(emptyCheck) { 
       this.get('errShippOptionsWeight').push(emptyCheck); 
     };

@@ -32,7 +32,7 @@
 
       <div class="widget_content form-group col-xs-12">
         <input type="text" class="form-control" id="fldDepartCity">
-        <div id="errorMessageDepartCity" class="help-block"></div>
+        <div id="errMsgDepartCity" class="help-block"></div>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@
 
       <div class="widget_content form-group col-xs-12">
         <input type="text" class="form-control" id="fldDestinCity">
-        <div id="errorMessageDestinCity" class="help-block"></div>
+        <div id="errMsgDestinCity" class="help-block"></div>
       </div>
     </div>
   </div>
@@ -67,13 +67,13 @@
           <div class="col-xs-6">
             <label>Вес</label>
             <input type="text" class="form-control" id="fldShippOptionsWeight">
-            <div id="errorMessageShippOptionsWeight" class="help-block"></div>
+            <div id="errMsgShippOptionsWeight" class="help-block"></div>
           </div>
 
           <div class="col-xs-6">
             <label>Объём</label>
             <input type="text" class="form-control" id="fldShippOptionsVolume">  
-            <div id="errorMessageShippOptionsVolume" class="help-block"></div>      
+            <div id="errMsgShippOptionsVolume" class="help-block"></div>      
           </div>
         </div>
       </div>
@@ -82,13 +82,13 @@
 </script>
 
 
-<script type="text/tpl" id="oversizedCargoTpl">
+<script type="text/tpl" id="overCargoTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
       <h2 class="col-xs-12">
         <input 
-          class="oversized_cargo_state_checkbox" 
-          id="oversizedCargoStateCheckbox" 
+          class="over_cargo_state_checkbox" 
+          id="overCargoStateCheckbox" 
           type="checkbox" 
           <%= activeState %> 
         >
@@ -98,14 +98,14 @@
       <div class="widget_content form-group col-xs-12 <%= visibility %>">
         <div class="">
           <label>Вес</label>
-          <input type="text" class="form-control" id="fldOversizedCargoWeight">
-          <div id="errorMessageOversizedCargoWeight" class="help-block"></div>
+          <input type="text" class="form-control" id="fldOverCargoWeight">
+          <div id="errMsgOverCargoWeight" class="help-block"></div>
         </div>
 
         <div class="">
           <label>Объём</label>
-          <input type="text" class="form-control" id="fldOversizedCargoVolume">  
-          <div id="errorMessageOversizedCargoVolume" class="help-block"></div>      
+          <input type="text" class="form-control" id="fldOverCargoVolume">  
+          <div id="errMsgOverCargoVolume" class="help-block"></div>      
         </div>
       </div>
     </div>
@@ -125,17 +125,17 @@
               <h4 class="modal-title" id="paymentLabel">Заказ составлен</h4>
             </div>
 
-            <div class="modal-body" id="paymentModalFields">
+            <div class="modal-body" id="paymentModalFlds">
               <form>
                 <fieldset disabled>
                   <div class="form-group">
                     <label>Город отправления</label>
-                    <input type="text" class="form-control" placeholder="<%= cityOfdepartName %>">
+                    <input type="text" class="form-control" placeholder="<%= departCity %>">
                   </div>
 
                   <div class="form-group">
                     <label>Город отправления</label>
-                    <input type="text" class="form-control" placeholder="<%= cityOfdestinName %>">
+                    <input type="text" class="form-control" placeholder="<%= destinCity %>">
                   </div>
 
                   <div class="form-group shipp_options">
