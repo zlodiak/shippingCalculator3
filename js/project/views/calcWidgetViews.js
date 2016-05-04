@@ -12,11 +12,11 @@ APP.DepartCityView = Backbone.View.extend({
 });
 
 
-APP.DestinationCityView = Backbone.View.extend({   
+APP.DestinCityView = Backbone.View.extend({   
 
-  id: 'destinationCityWidget',
+  id: 'destinCityWidget',
 
-  template: _.template($('#destinationCityTemplate').html()),
+  template: _.template($('#destinCityTemplate').html()),
 
   render: function () {  
     this.$el.html(this.template());

@@ -3,11 +3,11 @@ window.APP = window.APP || {};
 APP.CalcModel = Backbone.Model.extend({
   defaults: {
     departureCity: undefined,
-    destinationCity: undefined,
+    destinCity: undefined,
     shippingOptionsWeight: undefined,
     shippingOptionsVolume: undefined,
     errorsDepartureCity: [],
-    errorsDestinationCity: [],
+    errorsDestinCity: [],
     errorsShippingOptionsWeight: [],
     errorsShippingOptionsVolume: []   
   }, 
@@ -20,13 +20,13 @@ APP.CalcModel = Backbone.Model.extend({
 
     if(
       this.get('errorsDepartureCity').length != 0 ||
-      this.get('errorsDestinationCity').length != 0 ||
+      this.get('errorsDestinCity').length != 0 ||
       this.get('errorsShippingOptionsWeight').length != 0 ||
       this.get('errorsShippingOptionsVolume').length != 0 
     ) { 
       return {
         'departureCity': this.get('errorsDepartureCity'),
-        'destinationCity': this.get('errorsDestinationCity'),
+        'destinCity': this.get('errorsDestinCity'),
         'shippingOptionsWeight': this.get('errorsShippingOptionsWeight'),
         'shippingOptionsVolume': this.get('errorsShippingOptionsVolume')
       };
@@ -35,7 +35,7 @@ APP.CalcModel = Backbone.Model.extend({
 
   _resetErrors: function() {
     this.set({'errorsDepartureCity': []});
-    this.set({'errorsDestinationCity': []});
+    this.set({'errorsDestinCity': []});
     this.set({'errorsShippingOptionsWeight': []});
     this.set({'errorsShippingOptionsVolume': []});    
   },

@@ -6,7 +6,7 @@
 
     <div class="row">
       <div class="col-xs-6" id="departCityWidgetContainer"></div>
-      <div class="col-xs-6" id="destinationCityWidgetContainer"></div>
+      <div class="col-xs-6" id="destinCityWidgetContainer"></div>
     </div> 
 
     <div class="row">
@@ -39,7 +39,7 @@
 </script>
 
 
-<script type="text/template" id="destinationCityTemplate">
+<script type="text/template" id="destinCityTemplate">
   <div class="panel panel-default">
     <div class="panel-body row">
       <div class="col-xs-12">
@@ -47,8 +47,8 @@
       </div>
 
       <div class="widget_content form-group col-xs-12">
-        <input type="text" class="form-control" id="fldDestinationCity">
-        <div id="errorMessageDestinationCity" class="help-block"></div>
+        <input type="text" class="form-control" id="fldDestinCity">
+        <div id="errorMessageDestinCity" class="help-block"></div>
       </div>
     </div>
   </div>
@@ -135,7 +135,7 @@
 
                   <div class="form-group">
                     <label>Город отправления</label>
-                    <input type="text" class="form-control" placeholder="<%= cityOfDestinationName %>">
+                    <input type="text" class="form-control" placeholder="<%= cityOfdestinName %>">
                   </div>
 
                   <div class="form-group shipping_options">

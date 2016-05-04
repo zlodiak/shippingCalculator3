@@ -3,7 +3,7 @@ APP.CalcView = Backbone.View.extend({
   initialize: function() {   
     this.model = new APP.CalcModel();
     this.departCityWidget = new APP.DepartCityView();   
-    this.destinationCityWidget = new APP.DestinationCityView();
+    this.destinCityWidget = new APP.DestinCityView();
     this.shippingOptionsWidget = new APP.ShippingOptionsView();
        
     this.render();
@@ -14,7 +14,7 @@ APP.CalcView = Backbone.View.extend({
   render: function () {    
     this.$el.html(this.template());
     this.$el.find('#departCityWidgetContainer').html(this.departCityWidget.render().el);
-    this.$el.find('#destinationCityWidgetContainer').html(this.destinationCityWidget.render().el);
+    this.$el.find('#destinCityWidgetContainer').html(this.destinCityWidget.render().el);
     this.$el.find('#shippingOptionsWidgetContainer').html(this.shippingOptionsWidget.render().el);
     return this;
   },
@@ -25,19 +25,19 @@ APP.CalcView = Backbone.View.extend({
 
   submit: function() { 
     var departCity =         this.$el.find('#fldDepartCity').val(), 
-        destinationCity =       this.$el.find('#fldDestinationCity').val(), 
+        destinCity =       this.$el.find('#flddestinCity').val(), 
         shippingOptionsWeight = this.$el.find('#fldShippingOptionsWeight').val(),
         shippingOptionsVolume = this.$el.find('#fldShippingOptionsVolume').val();
 
     console.log(departCity);
-    console.log(destinationCity);
+    console.log(destinCity);
     console.log(shippingOptionsWeight);
     console.log(shippingOptionsVolume);
     console.log(this.model);
 
     this.model.set({
       'departCity': departCity,
-      'destinationCity': destinationCity,
+      'destinCity': destinCity,
       'shippingOptionsWeight': shippingOptionsWeight,
       'shippingOptionsVolume': shippingOptionsVolume
     });
