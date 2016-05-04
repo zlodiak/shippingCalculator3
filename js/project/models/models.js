@@ -4,31 +4,31 @@ APP.CalcModel = Backbone.Model.extend({
   defaults: {
     departureCity: undefined,
     destinCity: undefined,
-    shippingOptionsWeight: undefined,
-    shippingOptionsVolume: undefined,
+    shippOptionsWeight: undefined,
+    shippOptionsVolume: undefined,
     errorsDepartureCity: [],
     errorsDestinCity: [],
-    errorsShippingOptionsWeight: [],
-    errorsShippingOptionsVolume: []   
+    errorsShippOptionsWeight: [],
+    errorsShippOptionsVolume: []   
   }, 
 
   validate: function(attrs) {   
     this._resetErrors();
 
     this._validateDepartureCity(attrs.departureCity);
-    this._validateShippingOptionsWeight(attrs.shippingOptionsWeight);
+    this._validateShippOptionsWeight(attrs.shippOptionsWeight);
 
     if(
       this.get('errorsDepartureCity').length != 0 ||
       this.get('errorsDestinCity').length != 0 ||
-      this.get('errorsShippingOptionsWeight').length != 0 ||
-      this.get('errorsShippingOptionsVolume').length != 0 
+      this.get('errorsShippOptionsWeight').length != 0 ||
+      this.get('errorsShippOptionsVolume').length != 0 
     ) { 
       return {
         'departureCity': this.get('errorsDepartureCity'),
         'destinCity': this.get('errorsDestinCity'),
-        'shippingOptionsWeight': this.get('errorsShippingOptionsWeight'),
-        'shippingOptionsVolume': this.get('errorsShippingOptionsVolume')
+        'shippOptionsWeight': this.get('errorsShippOptionsWeight'),
+        'shippOptionsVolume': this.get('errorsShippOptionsVolume')
       };
     };
   },
@@ -36,8 +36,8 @@ APP.CalcModel = Backbone.Model.extend({
   _resetErrors: function() {
     this.set({'errorsDepartureCity': []});
     this.set({'errorsDestinCity': []});
-    this.set({'errorsShippingOptionsWeight': []});
-    this.set({'errorsShippingOptionsVolume': []});    
+    this.set({'errorsShippOptionsWeight': []});
+    this.set({'errorsShippOptionsVolume': []});    
   },
 
   _validateDepartureCity: function(departureCity) { 
@@ -53,26 +53,26 @@ APP.CalcModel = Backbone.Model.extend({
     };    
   },
 
-  _validateShippingOptionsWeight: function(shippingOptionsWeight) {
-    var emptyCheckShippingOptionsWeight = APP.valuesValidator.emptyCheck(shippingOptionsWeight), 
-        negativeNumShippingOptionsWeight = APP.valuesValidator.negativeNumCheck(shippingOptionsWeight), 
-        nullNumShippingOptionsWeight = APP.valuesValidator.nullNumCheck(shippingOptionsWeight), 
-        isStrCheckShippingOptionsWeight = APP.valuesValidator.isStrCheck(shippingOptionsWeight);
+  _validateShippOptionsWeight: function(shippOptionsWeight) {
+    var emptyCheckShippOptionsWeight = APP.valuesValidator.emptyCheck(shippOptionsWeight), 
+        negativeNumShippOptionsWeight = APP.valuesValidator.negativeNumCheck(shippOptionsWeight), 
+        nullNumShippOptionsWeight = APP.valuesValidator.nullNumCheck(shippOptionsWeight), 
+        isStrCheckShippOptionsWeight = APP.valuesValidator.isStrCheck(shippOptionsWeight);
 
-    if(emptyCheckShippingOptionsWeight) { 
-      this.get('errorsShippingOptionsWeight').push(emptyCheckShippingOptionsWeight) 
+    if(emptyCheckShippOptionsWeight) { 
+      this.get('errorsShippOptionsWeight').push(emptyCheckShippOptionsWeight) 
     };
 
-    if(negativeNumShippingOptionsWeight) { 
-      this.get('errorsShippingOptionsWeight').push(negativeNumShippingOptionsWeight) 
+    if(negativeNumShippOptionsWeight) { 
+      this.get('errorsShippOptionsWeight').push(negativeNumShippOptionsWeight) 
     };
 
-    if(nullNumShippingOptionsWeight) { 
-      this.get('errorsShippingOptionsWeight').push(nullNumShippingOptionsWeight) 
+    if(nullNumShippOptionsWeight) { 
+      this.get('errorsShippOptionsWeight').push(nullNumShippOptionsWeight) 
     };
 
-    if(isStrCheckShippingOptionsWeight) { 
-      this.get('errorsShippingOptionsWeight').push(isStrCheckShippingOptionsWeight) 
+    if(isStrCheckShippOptionsWeight) { 
+      this.get('errorsShippOptionsWeight').push(isStrCheckShippOptionsWeight) 
     };    
   }
 

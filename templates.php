@@ -1,21 +1,21 @@
-<script type="text/template" id="calcTemplate">
-  <div class="container">
+<script type="text/tpl" id="calcTpl">
+  <div class="cont">
     <div class="row">
       <div class="col-xs-12"><h1>Калькулятор доставки</h1></div>
     </div>
 
     <div class="row">
-      <div class="col-xs-6" id="departCityWidgetContainer"></div>
-      <div class="col-xs-6" id="destinCityWidgetContainer"></div>
+      <div class="col-xs-6" id="departCityWidgetCont"></div>
+      <div class="col-xs-6" id="destinCityWidgetCont"></div>
     </div> 
 
     <div class="row">
-      <div class="col-xs-12" id="shippingOptionsWidgetContainer"></div>
+      <div class="col-xs-12" id="shippOptionsWidgetCont"></div>
     </div>     
 
     <div class="row">
       <div class="col-xs-12">
-        <div class="btn btn-default pull-right" id="calcSubmitButton">Рассчитать</div>
+        <div class="btn btn-default pull-right" id="calcSubmitBtn">Рассчитать</div>
       </div>
     </div>        
 
@@ -23,7 +23,7 @@
 </script>
 
 
-<script type="text/template" id="departCityTemplate">
+<script type="text/tpl" id="departCityTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
       <div class="col-xs-12">
@@ -39,7 +39,7 @@
 </script>
 
 
-<script type="text/template" id="destinCityTemplate">
+<script type="text/tpl" id="destinCityTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
       <div class="col-xs-12">
@@ -55,7 +55,7 @@
 </script>
 
 
-<script type="text/template" id="shippingOptionsTemplate">
+<script type="text/tpl" id="shippOptionsTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
       <div class="col-xs-12">
@@ -66,14 +66,14 @@
         <div class="row">
           <div class="col-xs-6">
             <label>Вес</label>
-            <input type="text" class="form-control" id="fldShippingOptionsWeight">
-            <div id="errorMessageShippingOptionsWeight" class="help-block"></div>
+            <input type="text" class="form-control" id="fldShippOptionsWeight">
+            <div id="errorMessageShippOptionsWeight" class="help-block"></div>
           </div>
 
           <div class="col-xs-6">
             <label>Объём</label>
-            <input type="text" class="form-control" id="fldShippingOptionsVolume">  
-            <div id="errorMessageShippingOptionsVolume" class="help-block"></div>      
+            <input type="text" class="form-control" id="fldShippOptionsVolume">  
+            <div id="errorMessageShippOptionsVolume" class="help-block"></div>      
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@
 </script>
 
 
-<script type="text/template" id="oversizedCargoTemplate">
+<script type="text/tpl" id="oversizedCargoTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
       <h2 class="col-xs-12">
@@ -113,7 +113,7 @@
 </script>
 
 
-<script type="text/template" id="paymentModalTemplate">
+<script type="text/tpl" id="paymentModalTpl">
   <!-- Modal payment -->
   <div class="modal fade payment_modal" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentLabel">
     <div class="modal-dialog" role="document">     
@@ -121,7 +121,7 @@
         <form class="" id="paymentForm" method="get" action="#" onSubmit="return false;">
           <fieldset>         
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <btn type="btn" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></btn>
               <h4 class="modal-title" id="paymentLabel">Заказ составлен</h4>
             </div>
 
@@ -138,18 +138,18 @@
                     <input type="text" class="form-control" placeholder="<%= cityOfdestinName %>">
                   </div>
 
-                  <div class="form-group shipping_options">
+                  <div class="form-group shipp_options">
                     <label>Параметры груза</label>
 
                     <div class="input-group">
                       <span class="input-group-addon" id="basic-addon1">Вес</span>
-                      <input type="number" class="form-control" placeholder="<%= shippingOptionsWeight %>">
+                      <input type="number" class="form-control" placeholder="<%= shippOptionsWeight %>">
                       <span class="input-group-addon">кг</span>
                     </div>                                    
 
                     <div class="input-group">
                       <span class="input-group-addon" id="basic-addon1">Объём</span>
-                      <input type="number" class="form-control" placeholder="<%= shippingOptionsVolume %>">
+                      <input type="number" class="form-control" placeholder="<%= shippOptionsVolume %>">
                       <span class="input-group-addon">м<sup>3</sup></span>
                     </div>  
                   </div>  
@@ -158,7 +158,7 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Понятно</button>
+              <btn type="btn" class="btn btn-default" data-dismiss="modal">Понятно</btn>
             </div>
           </fieldset>
         </form>          

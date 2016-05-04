@@ -2,7 +2,7 @@ APP.DepartCityView = Backbone.View.extend({
 
   id: 'departCityWidget',
 
-  template: _.template($('#departCityTemplate').html()),
+  template: _.template($('#departCityTpl').html()),
 
   render: function () {  
     this.$el.html(this.template());
@@ -16,7 +16,7 @@ APP.DestinCityView = Backbone.View.extend({
 
   id: 'destinCityWidget',
 
-  template: _.template($('#destinCityTemplate').html()),
+  template: _.template($('#destinCityTpl').html()),
 
   render: function () {  
     this.$el.html(this.template());
@@ -26,11 +26,11 @@ APP.DestinCityView = Backbone.View.extend({
 });
 
 
-APP.ShippingOptionsView = Backbone.View.extend({    
+APP.ShippOptionsView = Backbone.View.extend({    
 
-  id: 'shippingOptionsWidget',
+  id: 'shippOptionsWidget',
 
-  template: _.template($('#shippingOptionsTemplate').html()),
+  template: _.template($('#shippOptionsTpl').html()),
 
   render: function () {  
     this.$el.html(this.template());
@@ -48,11 +48,11 @@ APP.OversizedCargoView = Backbone.View.extend({
 
   tagName: 'div',
 
-  className: 'oversized_cargo_container col-xs-12',
+  className: 'oversized_cargo_cont col-xs-12',
 
-  id: 'oversizedCargoContainer',
+  id: 'oversizedCargoCont',
 
-  template: _.template($('#oversizedCargoTemplate').html()),
+  template: _.template($('#oversizedCargoTpl').html()),
 
   render: function() {  
     if(this.model.get('activeState')) {

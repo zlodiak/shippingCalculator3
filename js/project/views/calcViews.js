@@ -4,42 +4,42 @@ APP.CalcView = Backbone.View.extend({
     this.model = new APP.CalcModel();
     this.departCityWidget = new APP.DepartCityView();   
     this.destinCityWidget = new APP.DestinCityView();
-    this.shippingOptionsWidget = new APP.ShippingOptionsView();
+    this.shippOptionsWidget = new APP.ShippOptionsView();
        
     this.render();
   },    
 
-  template: _.template($('#calcTemplate').html()),
+  template: _.template($('#calcTpl').html()),
 
   render: function () {    
     this.$el.html(this.template());
-    this.$el.find('#departCityWidgetContainer').html(this.departCityWidget.render().el);
-    this.$el.find('#destinCityWidgetContainer').html(this.destinCityWidget.render().el);
-    this.$el.find('#shippingOptionsWidgetContainer').html(this.shippingOptionsWidget.render().el);
+    this.$el.find('#departCityWidgetCont').html(this.departCityWidget.render().el);
+    this.$el.find('#destinCityWidgetCont').html(this.destinCityWidget.render().el);
+    this.$el.find('#shippOptionsWidgetCont').html(this.shippOptionsWidget.render().el);
     return this;
   },
 
   events:{
-    'click #calcSubmitButton' : 'submit'
+    'click #calcSubmitBtn' : 'submit'
   },
 
   submit: function() { 
-    var departCity =         this.$el.find('#fldDepartCity').val(), 
-        destinCity =       this.$el.find('#flddestinCity').val(), 
-        shippingOptionsWeight = this.$el.find('#fldShippingOptionsWeight').val(),
-        shippingOptionsVolume = this.$el.find('#fldShippingOptionsVolume').val();
+    var departCity =          this.$el.find('#fldDepartCity').val(), 
+        destinCity =          this.$el.find('#flddestinCity').val(), 
+        shippOptionsWeight =  this.$el.find('#fldShippOptionsWeight').val(),
+        shippOptionsVolume =  this.$el.find('#fldShippOptionsVolume').val();
 
     console.log(departCity);
     console.log(destinCity);
-    console.log(shippingOptionsWeight);
-    console.log(shippingOptionsVolume);
+    console.log(shippOptionsWeight);
+    console.log(shippOptionsVolume);
     console.log(this.model);
 
     this.model.set({
       'departCity': departCity,
       'destinCity': destinCity,
-      'shippingOptionsWeight': shippingOptionsWeight,
-      'shippingOptionsVolume': shippingOptionsVolume
+      'shippOptionsWeight': shippOptionsWeight,
+      'shippOptionsVolume': shippOptionsVolume
     });
 
     
@@ -60,7 +60,7 @@ APP.PaymentModalView = Backbone.View.extend({
 
   tagName: 'div',
 
-  template: _.template($('#paymentModalTemplate').html()),
+  template: _.template($('#paymentModalTpl').html()),
 
   render: function (data) {  
     this.$el.html(this.template(data));
