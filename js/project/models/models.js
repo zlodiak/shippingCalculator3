@@ -16,7 +16,9 @@ APP.CalcModel = Backbone.Model.extend({
     this._resetErr();
 
     this._validDepartCity(attrs.departCity);
+    this._validDestinCity(attrs.destinCity);
     this._validShippOptionsWeight(attrs.shippOptionsWeight);
+    this._validShippOptionsVolume(attrs.shippOptionsVolume);
 
     if(
       this.get('errDepartCity').length != 0 ||
@@ -45,18 +47,24 @@ APP.CalcModel = Backbone.Model.extend({
         isNumCheck = APP.valuesValidator.isNumCheck(city),
         lowLengthCheck = APP.valuesValidator.lowLengthCheck(city, 3);
 
-    if(emptyCheck) { 
-      this.get('errDepartCity').push(emptyCheck) 
-    } else {
-      if(isNumCheck) { 
-        this.get('errDepartCity').push(isNumCheck); 
-      } else {
+    if(emptyCheck) { this.get('errDepartCity').push(emptyCheck) } else { 
+      if(isNumCheck) { this.get('errDepartCity').push(isNumCheck) } else { 
         if(lowLengthCheck) { this.get('errDepartCity').push(lowLengthCheck) };
       };               
     };
-
-       
   },
+
+  _validDestinCity: function(city) { 
+    var emptyCheck = APP.valuesValidator.emptyCheck(city), 
+        isNumCheck = APP.valuesValidator.isNumCheck(city),
+        lowLengthCheck = APP.valuesValidator.lowLengthCheck(city, 3);
+
+    if(emptyCheck) { this.get('errDestinCity').push(emptyCheck) } else { 
+      if(isNumCheck) { this.get('errDestinCity').push(isNumCheck) } else { 
+        if(lowLengthCheck) { this.get('errDestinCity').push(lowLengthCheck) };
+      };               
+    };
+  },  
 
   _validShippOptionsWeight: function(weight) {  
     var emptyCheck = APP.valuesValidator.emptyCheck(weight), 
@@ -64,22 +72,23 @@ APP.CalcModel = Backbone.Model.extend({
         nullNumCheck = APP.valuesValidator.nullNumCheck(weight), 
         isStrCheck = APP.valuesValidator.isStrCheck(weight);
 
-    if(emptyCheck) { 
-      this.get('errShippOptionsWeight').push(emptyCheck); 
-    };
+    if(emptyCheck) { this.get('errShippOptionsWeight').push(emptyCheck) };
+    if(minusNumCheck) { this.get('errShippOptionsWeight').push(minusNumCheck) };
+    if(nullNumCheck) { this.get('errShippOptionsWeight').push(nullNumCheck) };
+    if(isStrCheck) { this.get('errShippOptionsWeight').push(isStrCheck) };    
+  }, 
 
-    if(minusNumCheck) { 
-      this.get('errShippOptionsWeight').push(minusNumCheck); 
-    };
+  _validShippOptionsVolume: function(volume) {  
+    var emptyCheck = APP.valuesValidator.emptyCheck(volume), 
+        minusNumCheck = APP.valuesValidator.minusNumCheck(volume), 
+        nullNumCheck = APP.valuesValidator.nullNumCheck(volume), 
+        isStrCheck = APP.valuesValidator.isStrCheck(volume);
 
-    if(nullNumCheck) { 
-      this.get('errShippOptionsWeight').push(nullNumCheck); 
-    };
-
-    if(isStrCheck) { 
-      this.get('errShippOptionsWeight').push(isStrCheck); 
-    };    
-  }
+    if(emptyCheck) { this.get('errShippOptionsVolume').push(emptyCheck) };
+    if(minusNumCheck) { this.get('errShippOptionsVolume').push(minusNumCheck) };
+    if(nullNumCheck) { this.get('errShippOptionsVolume').push(nullNumCheck) };
+    if(isStrCheck) { this.get('errShippOptionsVolume').push(isStrCheck) };    
+  }  
 
 });
 
