@@ -5,7 +5,7 @@ APP.valuesValidator = {
     };
   },
 
-  negativeNumCheck: function(value) { 
+  minusNumCheck: function(value) { 
     if(parseInt($.trim(value), 10) < 0) { 
       return 'Это значение не может быть меньше нуля'; 
     };

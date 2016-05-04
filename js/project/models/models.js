@@ -2,77 +2,77 @@ window.APP = window.APP || {};
 
 APP.CalcModel = Backbone.Model.extend({
   defaults: {
-    departureCity: undefined,
+    departCity: undefined,
     destinCity: undefined,
     shippOptionsWeight: undefined,
     shippOptionsVolume: undefined,
-    errorsDepartureCity: [],
-    errorsDestinCity: [],
-    errorsShippOptionsWeight: [],
-    errorsShippOptionsVolume: []   
+    errDepartCity: [],
+    errDestinCity: [],
+    errShippOptionsWeight: [],
+    errShippOptionsVolume: []   
   }, 
 
   validate: function(attrs) {   
-    this._resetErrors();
+    this._resetErr();
 
-    this._validateDepartureCity(attrs.departureCity);
-    this._validateShippOptionsWeight(attrs.shippOptionsWeight);
+    this._validDepartCity(attrs.departCity);
+    this._validShippOptionsWeight(attrs.shippOptionsWeight);
 
     if(
-      this.get('errorsDepartureCity').length != 0 ||
-      this.get('errorsDestinCity').length != 0 ||
-      this.get('errorsShippOptionsWeight').length != 0 ||
-      this.get('errorsShippOptionsVolume').length != 0 
+      this.get('errDepartCity').length != 0 ||
+      this.get('errDestinCity').length != 0 ||
+      this.get('errShippOptionsWeight').length != 0 ||
+      this.get('errShippOptionsVolume').length != 0 
     ) { 
       return {
-        'departureCity': this.get('errorsDepartureCity'),
-        'destinCity': this.get('errorsDestinCity'),
-        'shippOptionsWeight': this.get('errorsShippOptionsWeight'),
-        'shippOptionsVolume': this.get('errorsShippOptionsVolume')
+        'departCity': this.get('errDepartCity'),
+        'destinCity': this.get('errDestinCity'),
+        'shippOptionsWeight': this.get('errShippOptionsWeight'),
+        'shippOptionsVolume': this.get('errShippOptionsVolume')
       };
     };
   },
 
-  _resetErrors: function() {
-    this.set({'errorsDepartureCity': []});
-    this.set({'errorsDestinCity': []});
-    this.set({'errorsShippOptionsWeight': []});
-    this.set({'errorsShippOptionsVolume': []});    
+  _resetErr: function() {
+    this.set({'errDepartCity': []});
+    this.set({'errDestinCity': []});
+    this.set({'errShippOptionsWeight': []});
+    this.set({'errShippOptionsVolume': []});    
   },
 
-  _validateDepartureCity: function(departureCity) { 
-    var emptyCheckDepartureCity = APP.valuesValidator.emptyCheck(departureCity), 
-        isNumCheckDepartureCity = APP.valuesValidator.isNumCheck(departureCity);
+  _validDepartCity: function(city) { 
+    var emptyCheck = APP.valuesValidator.emptyCheck(city), 
+        isNumCheck = APP.valuesValidator.isNumCheck(city);
 
-    if(emptyCheckDepartureCity) { 
-      this.get('errorsDepartureCity').push(emptyCheckDepartureCity) 
+    if(emptyCheck) { 
+      this.get('errDepartCity').push(emptyCheck) 
     };
 
-    if(isNumCheckDepartureCity) { 
-      this.get('errorsDepartureCity').push(isNumCheckDepartureCity) 
+    if(isNumCheck) { 
+      this.get('errDepartCity').push(isNumCheck) 
     };    
   },
 
-  _validateShippOptionsWeight: function(shippOptionsWeight) {
-    var emptyCheckShippOptionsWeight = APP.valuesValidator.emptyCheck(shippOptionsWeight), 
-        negativeNumShippOptionsWeight = APP.valuesValidator.negativeNumCheck(shippOptionsWeight), 
-        nullNumShippOptionsWeight = APP.valuesValidator.nullNumCheck(shippOptionsWeight), 
-        isStrCheckShippOptionsWeight = APP.valuesValidator.isStrCheck(shippOptionsWeight);
+  _validShippOptionsWeight: function(weight) {
+    var emptyCheckWeight = APP.valuesValidator.emptyCheck(weight), 
+        minusNumWeight = APP.valuesValidator.minusNumCheck(weight), 
+        nullNumWeight = APP.valuesValidator.nullNumCheck(weight), 
+        isStrCheckWeight = APP.valuesValidator.isStrCheck(weight);
 
-    if(emptyCheckShippOptionsWeight) { 
-      this.get('errorsShippOptionsWeight').push(emptyCheckShippOptionsWeight) 
+    if(emptyCheckWeight) { 
+      this.get('errWeight').push(emptyCheckWeigh) 
     };
 
-    if(negativeNumShippOptionsWeight) { 
-      this.get('errorsShippOptionsWeight').push(negativeNumShippOptionsWeight) 
+    if(minusNumWeight) { 
+      this.get('errWeight').push(minusNumWeight) 
     };
 
-    if(nullNumShippOptionsWeight) { 
-      this.get('errorsShippOptionsWeight').push(nullNumShippOptionsWeight) 
+    if(nullNumWeight) { 
+      this.get('errWeight').push(nullNumWeight) 
     };
 
-    if(isStrCheckShippOptionsWeight) { 
-      this.get('errorsShippOptionsWeight').push(isStrCheckShippOptionsWeight) 
+    if(isStrCheckWeight) { 
+      this.get('errWeight').push(isStrCheckWeight) 
     };    
   }
 

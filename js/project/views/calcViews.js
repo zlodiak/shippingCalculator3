@@ -47,8 +47,8 @@ APP.CalcView = Backbone.View.extend({
     if(this.model.isValid()) {
       console.log('no validat errors');
     } else {      
-      var validationErrorArr = this.model.validationError;
-      console.log(validationErrorArr);
+      var validErrArr = this.model.validationError;
+      console.log(validErrArr);
     };
     
   }  
