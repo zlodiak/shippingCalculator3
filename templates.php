@@ -1,4 +1,4 @@
-<script type="text/tpl" id="calcTpl">
+<script type="text/template" id="calcTpl">
   <div class="container">
     <div class="row">
       <div class="col-xs-12"><h1>Калькулятор доставки</h1></div>
@@ -22,7 +22,7 @@
 </script>
 
 
-<script type="text/tpl" id="departCityTpl">
+<script type="text/template" id="departCityTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
       <div class="col-xs-12">
@@ -38,7 +38,7 @@
 </script>
 
 
-<script type="text/tpl" id="destinCityTpl">
+<script type="text/template" id="destinCityTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
       <div class="col-xs-12">
@@ -54,7 +54,7 @@
 </script>
 
 
-<script type="text/tpl" id="shippOptionsTpl">
+<script type="text/template" id="shippOptionsTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
       <div class="col-xs-12">
@@ -91,7 +91,7 @@
 </script>
 
 
-<script type="text/tpl" id="overCargoTpl">
+<script type="text/template" id="overCargoTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
       <h2 class="col-xs-12">
@@ -122,7 +122,7 @@
 </script>
 
 
-<script type="text/tpl" id="paymentModalTpl">
+<script type="text/template" id="paymentModalTpl">
   <!-- Modal payment -->
   <div class="modal fade payment_modal" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentLabel">
     <div class="modal-dialog" role="document">     
@@ -131,39 +131,12 @@
           <fieldset>         
             <div class="modal-header">
               <btn type="btn" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></btn>
-              <h4 class="modal-title" id="paymentLabel">Заказ составлен</h4>
+              <h4 class="modal-title" id="paymentLabel">Стоимость пересылки</h4>
             </div>
 
-            <div class="modal-body" id="paymentModalFlds">
-              <form>
-                <fieldset disabled>
-                  <div class="form-group">
-                    <label>Город отправления</label>
-                    <input type="text" class="form-control" placeholder="<%= departCity %>">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Город отправления</label>
-                    <input type="text" class="form-control" placeholder="<%= destinCity %>">
-                  </div>
-
-                  <div class="form-group shipp_options">
-                    <label>Параметры груза</label>
-
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon1">Вес</span>
-                      <input type="number" class="form-control" placeholder="<%= shippOptionsWeight %>">
-                      <span class="input-group-addon">кг</span>
-                    </div>                                    
-
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon1">Объём</span>
-                      <input type="number" class="form-control" placeholder="<%= shippOptionsVolume %>">
-                      <span class="input-group-addon">м<sup>3</sup></span>
-                    </div>  
-                  </div>  
-                </fieldset>
-              </form>                   
+            <div class="modal-body" id="paymentPriceCont">
+              <span class="price">121</span>
+              <span class="currency">руб</span>
             </div>
 
             <div class="modal-footer">

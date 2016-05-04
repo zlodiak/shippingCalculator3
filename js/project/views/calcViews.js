@@ -2,20 +2,25 @@ APP.CalcView = Backbone.View.extend({
 
   initialize: function() {   
     this.model = new APP.CalcModel();
+    this.paymentModal = new APP.PaymentModalView();
     this.departCityWidget = new APP.DepartCityView();   
     this.destinCityWidget = new APP.DestinCityView();
     this.shippOptionsWidget = new APP.ShippOptionsView();
        
     this.render();
+
+    console.log(this.paymentModal);
   },    
 
   template: _.template($('#calcTpl').html()),
 
   render: function () {    
     this.$el.html(this.template());
+    this.$el.append(this.paymentModal.render().el);
     this.$el.find('#departCityWidgetCont').html(this.departCityWidget.render().el);
     this.$el.find('#destinCityWidgetCont').html(this.destinCityWidget.render().el);
     this.$el.find('#shippOptionsWidgetCont').html(this.shippOptionsWidget.render().el);
+    
     return this;
   },
 
@@ -28,6 +33,7 @@ APP.CalcView = Backbone.View.extend({
 
     if(this.model.isValid()) {
       console.log('no validat errors');
+      $('#paymentModal').modal('show') 
     } else {      
       console.log('validat errors');
       //console.log(validErrArr);
