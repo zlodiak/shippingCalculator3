@@ -42,15 +42,20 @@ APP.CalcModel = Backbone.Model.extend({
 
   _validDepartCity: function(city) { 
     var emptyCheck = APP.valuesValidator.emptyCheck(city), 
-        isNumCheck = APP.valuesValidator.isNumCheck(city);
+        isNumCheck = APP.valuesValidator.isNumCheck(city),
+        lowLengthCheck = APP.valuesValidator.lowLengthCheck(city, 3);
 
     if(emptyCheck) { 
-      this.get('errDepartCity').push(emptyCheck); 
+      this.get('errDepartCity').push(emptyCheck) 
+    } else {
+      if(isNumCheck) { 
+        this.get('errDepartCity').push(isNumCheck); 
+      } else {
+        if(lowLengthCheck) { this.get('errDepartCity').push(lowLengthCheck) };
+      };               
     };
 
-    if(isNumCheck) { 
-      this.get('errDepartCity').push(isNumCheck); 
-    };    
+       
   },
 
   _validShippOptionsWeight: function(weight) {  

@@ -29,5 +29,11 @@ APP.valuesValidator = {
     if(isNaN(parseInt(valueTrimmed, 10)) == true && valueTrimmed.length != 0) { 
       return 'Это значение должно быть цифрой'; 
     };
-  } 
+  },
+
+  lowLengthCheck: function(value, lowLimit) { 
+    if($.trim(value).length <= lowLimit) { 
+      return 'Это значение не может быть таким коротким'; 
+    };
+  },   
 }
