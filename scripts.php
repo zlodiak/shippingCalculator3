@@ -10,6 +10,6 @@
 <script src="js/project/helper.js"></script> 
 
 <script>
-  var app = new APP.CalculatorView({el: '#shippingCalculator'});
+  var app = new APP.CalcView({el: '#shippingCalc'});
 </script>
 

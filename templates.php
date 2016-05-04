@@ -1,11 +1,11 @@
-<script type="text/template" id="calculatorTemplate">
+<script type="text/template" id="calcTemplate">
   <div class="container">
     <div class="row">
       <div class="col-xs-12"><h1>Калькулятор доставки</h1></div>
     </div>
 
     <div class="row">
-      <div class="col-xs-6" id="departureCityWidgetContainer"></div>
+      <div class="col-xs-6" id="departCityWidgetContainer"></div>
       <div class="col-xs-6" id="destinationCityWidgetContainer"></div>
     </div> 
 
@@ -15,7 +15,7 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <div class="btn btn-default pull-right" id="calculatorSubmitButton">Рассчитать</div>
+        <div class="btn btn-default pull-right" id="calcSubmitButton">Рассчитать</div>
       </div>
     </div>        
 
@@ -23,7 +23,7 @@
 </script>
 
 
-<script type="text/template" id="departureCityTemplate">
+<script type="text/template" id="departCityTemplate">
   <div class="panel panel-default">
     <div class="panel-body row">
       <div class="col-xs-12">
@@ -31,8 +31,8 @@
       </div>
 
       <div class="widget_content form-group col-xs-12">
-        <input type="text" class="form-control" id="fldDepartureCity">
-        <div id="errorMessageDepartureCity" class="help-block"></div>
+        <input type="text" class="form-control" id="fldDepartCity">
+        <div id="errorMessageDepartCity" class="help-block"></div>
       </div>
     </div>
   </div>
@@ -130,7 +130,7 @@
                 <fieldset disabled>
                   <div class="form-group">
                     <label>Город отправления</label>
-                    <input type="text" class="form-control" placeholder="<%= cityOfDepartureName %>">
+                    <input type="text" class="form-control" placeholder="<%= cityOfdepartName %>">
                   </div>
 
                   <div class="form-group">

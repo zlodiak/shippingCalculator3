@@ -1,8 +1,8 @@
-APP.DepartureCityView = Backbone.View.extend({   
+APP.DepartCityView = Backbone.View.extend({   
 
-  id: 'departureCityWidget',
+  id: 'departCityWidget',
 
-  template: _.template($('#departureCityTemplate').html()),
+  template: _.template($('#departCityTemplate').html()),
 
   render: function () {  
     this.$el.html(this.template());

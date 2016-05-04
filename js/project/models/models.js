@@ -1,6 +1,6 @@
 window.APP = window.APP || {};
 
-APP.CalculatorModel = Backbone.Model.extend({
+APP.CalcModel = Backbone.Model.extend({
   defaults: {
     departureCity: undefined,
     destinationCity: undefined,
@@ -75,6 +75,6 @@ APP.CalculatorModel = Backbone.Model.extend({
       this.get('errorsShippingOptionsWeight').push(isStrCheckShippingOptionsWeight) 
     };    
   }
-             
+
 });
 

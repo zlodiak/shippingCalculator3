@@ -6,7 +6,7 @@
   </head>
 
   <body>
-    <div class="shipping_calculator" id="shippingCalculator"></div>
+    <div class="shipping_calc" id="shippingCalc"></div>
 
     <?php require('templates.php'); ?>
 

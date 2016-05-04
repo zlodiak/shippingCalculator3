@@ -1,42 +1,42 @@
-APP.CalculatorView = Backbone.View.extend({  
+APP.CalcView = Backbone.View.extend({  
 
   initialize: function() {   
-    this.model = new APP.CalculatorModel();
-    this.departureCityWidget = new APP.DepartureCityView();   
+    this.model = new APP.CalcModel();
+    this.departCityWidget = new APP.DepartCityView();   
     this.destinationCityWidget = new APP.DestinationCityView();
     this.shippingOptionsWidget = new APP.ShippingOptionsView();
        
     this.render();
   },    
 
-  template: _.template($('#calculatorTemplate').html()),
+  template: _.template($('#calcTemplate').html()),
 
   render: function () {    
     this.$el.html(this.template());
-    this.$el.find('#departureCityWidgetContainer').html(this.departureCityWidget.render().el);
+    this.$el.find('#departCityWidgetContainer').html(this.departCityWidget.render().el);
     this.$el.find('#destinationCityWidgetContainer').html(this.destinationCityWidget.render().el);
     this.$el.find('#shippingOptionsWidgetContainer').html(this.shippingOptionsWidget.render().el);
     return this;
   },
 
   events:{
-    'click #calculatorSubmitButton' : 'submit'
+    'click #calcSubmitButton' : 'submit'
   },
 
   submit: function() { 
-    var departureCity =         this.$el.find('#fldDepartureCity').val(), 
+    var departCity =         this.$el.find('#fldDepartCity').val(), 
         destinationCity =       this.$el.find('#fldDestinationCity').val(), 
         shippingOptionsWeight = this.$el.find('#fldShippingOptionsWeight').val(),
         shippingOptionsVolume = this.$el.find('#fldShippingOptionsVolume').val();
 
-    console.log(departureCity);
+    console.log(departCity);
     console.log(destinationCity);
     console.log(shippingOptionsWeight);
     console.log(shippingOptionsVolume);
     console.log(this.model);
 
     this.model.set({
-      'departureCity': departureCity,
+      'departCity': departCity,
       'destinationCity': destinationCity,
       'shippingOptionsWeight': shippingOptionsWeight,
       'shippingOptionsVolume': shippingOptionsVolume
