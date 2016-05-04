@@ -45,34 +45,39 @@ APP.CalcModel = Backbone.Model.extend({
         isNumCheck = APP.valuesValidator.isNumCheck(city);
 
     if(emptyCheck) { 
-      this.get('errDepartCity').push(emptyCheck) 
+      this.get('errDepartCity').push(emptyCheck); 
     };
 
     if(isNumCheck) { 
-      this.get('errDepartCity').push(isNumCheck) 
+      this.get('errDepartCity').push(isNumCheck); 
     };    
   },
 
-  _validShippOptionsWeight: function(weight) {
-    var emptyCheckWeight = APP.valuesValidator.emptyCheck(weight), 
-        minusNumWeight = APP.valuesValidator.minusNumCheck(weight), 
-        nullNumWeight = APP.valuesValidator.nullNumCheck(weight), 
-        isStrCheckWeight = APP.valuesValidator.isStrCheck(weight);
+  _validShippOptionsWeight: function(weight) {  
+    var emptyCheck = APP.valuesValidator.emptyCheck(weight), 
+        minusNumCheck = APP.valuesValidator.minusNumCheck(weight), 
+        nullNumCheck = APP.valuesValidator.nullNumCheck(weight), 
+        isStrCheck = APP.valuesValidator.isStrCheck(weight);
 
-    if(emptyCheckWeight) { 
-      this.get('errWeight').push(emptyCheckWeigh) 
+        console.log(emptyCheck, ' empty res');
+        console.log(minusNumCheck, ' minusNumCheck res');
+        console.log(nullNumCheck, ' nullNumCheck res');
+        console.log(isStrCheck, ' isStrCheck res');
+
+    if(emptyCheck) { 
+      this.get('errShippOptionsWeight').push(emptyCheck); 
     };
 
-    if(minusNumWeight) { 
-      this.get('errWeight').push(minusNumWeight) 
+    if(minusNumCheck) { 
+      this.get('errShippOptionsWeight').push(minusNumCheck); 
     };
 
-    if(nullNumWeight) { 
-      this.get('errWeight').push(nullNumWeight) 
+    if(nullNumCheck) { 
+      this.get('errShippOptionsWeight').push(nullNumCheck); 
     };
 
-    if(isStrCheckWeight) { 
-      this.get('errWeight').push(isStrCheckWeight) 
+    if(isStrCheck) { 
+      this.get('errShippOptionsWeight').push(isStrCheck); 
     };    
   }
 

@@ -25,15 +25,15 @@ APP.CalcView = Backbone.View.extend({
 
   submit: function() { 
     var departCity =          this.$el.find('#fldDepartCity').val(), 
-        destinCity =          this.$el.find('#flddestinCity').val(), 
+        destinCity =          this.$el.find('#fldDestinCity').val(), 
         shippOptionsWeight =  this.$el.find('#fldShippOptionsWeight').val(),
         shippOptionsVolume =  this.$el.find('#fldShippOptionsVolume').val();
 
-    console.log(departCity);
+/*    console.log(departCity);
     console.log(destinCity);
     console.log(shippOptionsWeight);
     console.log(shippOptionsVolume);
-    console.log(this.model);
+    console.log(this.model);*/
 
     this.model.set({
       'departCity': departCity,
