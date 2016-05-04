@@ -11,36 +11,35 @@ INFO:
 */	
 
 /****************************************************************************** COMMON_STYLES */
-.hide{
+.shipp_calc .hide{
 	display: none !important;
 }
 
-.show{
+.shipp_calc .show{
 	display: block !important;
 }
 
-.not_valid{
+.shipp_calc .not_valid{
 	border: 1px solid red;
 }
 
-.valid{
+.shipp_calc .valid{
 	border: 1px solid #ccc;
 }
 
-.form-group {
+.shipp_calc .form-group {
     margin-bottom: 0px;
 }
 
-h2{
+.shipp_calc h2{
 	margin-top: 0;
 }
 
+.shipp_calc label:after {
+	content: ':';
+}
 
 /****************************************************************************** GLOBAL_layout */
-/*.main-container{
-	width: 100%;
-}
-*/
 
 
 
@@ -48,10 +47,6 @@ h2{
 /****************************************************************************** GLOBAL_blocks: payment_modal */
 .payment_modal .shipp_options .input-group{
 	margin-bottom: 20px;
-}
-
-.payment_modal label:after{
-	content: ': ';
 }
 
 .payment_modal .form-group{

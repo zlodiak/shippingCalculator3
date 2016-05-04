@@ -18,7 +18,6 @@
         <div class="btn btn-default pull-right" id="calcSubmitBtn">Рассчитать</div>
       </div>
     </div>        
-
   </div>
 </script>
 
@@ -66,13 +65,23 @@
         <div class="row">
           <div class="col-xs-6">
             <label>Вес</label>
-            <input type="text" class="form-control" id="fldShippOptionsWeight">
+
+            <div class="input-group">
+              <input type="text" class="form-control" id="fldShippOptionsWeight">
+              <span class="input-group-addon">кг</span>
+            </div>
+
             <div id="errMsgShippOptionsWeight" class="help-block"></div>
           </div>
 
           <div class="col-xs-6">
             <label>Объём</label>
-            <input type="text" class="form-control" id="fldShippOptionsVolume">  
+
+            <div class="input-group">
+            <input type="text" class="form-control" id="fldShippOptionsVolume"> 
+              <span class="input-group-addon">м<sup>3</sup></span>
+            </div>
+
             <div id="errMsgShippOptionsVolume" class="help-block"></div>      
           </div>
         </div>
