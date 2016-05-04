@@ -24,34 +24,43 @@ APP.CalcView = Backbone.View.extend({
   },
 
   submit: function() { 
+    this._setModel();
+
+    if(this.model.isValid()) {
+      console.log('no validat errors');
+    } else {      
+      console.log('validat errors');
+      //console.log(validErrArr);
+    };    
+
+    this._errMsgManage();
+  },
+
+  _setModel: function() { 
     var departCity =          this.$el.find('#fldDepartCity').val(), 
         destinCity =          this.$el.find('#fldDestinCity').val(), 
         shippOptionsWeight =  this.$el.find('#fldShippOptionsWeight').val(),
         shippOptionsVolume =  this.$el.find('#fldShippOptionsVolume').val();
-
-/*    console.log(departCity);
-    console.log(destinCity);
-    console.log(shippOptionsWeight);
-    console.log(shippOptionsVolume);
-    console.log(this.model);*/
 
     this.model.set({
       'departCity': departCity,
       'destinCity': destinCity,
       'shippOptionsWeight': shippOptionsWeight,
       'shippOptionsVolume': shippOptionsVolume
-    });
+    });  
+  },
 
-    
+  _errMsgManage: function() { 
+    var validErrArr = this.model.validationError;
 
-    if(this.model.isValid()) {
-      console.log('no validat errors');
-    } else {      
-      var validErrArr = this.model.validationError;
-      console.log(validErrArr);
+    this.$el.find('.help-block').empty();    
+
+    for(prop in validErrArr) { 
+      var msgCont = this.$el.find('#errMsg_' + prop);      
+      for(key in validErrArr[prop]) { msgCont.append(validErrArr[prop][key]) };
     };
-    
-  }  
+
+  } 
 
 });
 

@@ -31,7 +31,7 @@
 
       <div class="widget_content form-group col-xs-12">
         <input type="text" class="form-control" id="fldDepartCity">
-        <div id="errMsgDepartCity" class="help-block"></div>
+        <div id="errMsg_departCity" class="help-block"></div>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
 
       <div class="widget_content form-group col-xs-12">
         <input type="text" class="form-control" id="fldDestinCity">
-        <div id="errMsgDestinCity" class="help-block"></div>
+        <div id="errMsg_destinCity" class="help-block"></div>
       </div>
     </div>
   </div>
@@ -71,7 +71,7 @@
               <span class="input-group-addon">кг</span>
             </div>
 
-            <div id="errMsgShippOptionsWeight" class="help-block"></div>
+            <div id="errMsg_shippOptionsWeight" class="help-block"></div>
           </div>
 
           <div class="col-xs-6">
@@ -82,7 +82,7 @@
               <span class="input-group-addon">м<sup>3</sup></span>
             </div>
 
-            <div id="errMsgShippOptionsVolume" class="help-block"></div>      
+            <div id="errMsg_shippOptionsVolume" class="help-block"></div>      
           </div>
         </div>
       </div>
