@@ -135,7 +135,7 @@
             </div>
 
             <div class="modal-body" id="paymentPriceCont">
-              <span class="price">121</span>
+              <span class="price"><%= price %></span>
               <span class="currency">руб</span>
             </div>
 

@@ -2,25 +2,22 @@ APP.CalcView = Backbone.View.extend({
 
   initialize: function() {   
     this.model = new APP.CalcModel();
-    this.paymentModal = new APP.PaymentModalView();
+    
     this.departCityWidget = new APP.DepartCityView();   
     this.destinCityWidget = new APP.DestinCityView();
     this.shippOptionsWidget = new APP.ShippOptionsView();
        
     this.render();
-
-    console.log(this.paymentModal);
   },    
 
   template: _.template($('#calcTpl').html()),
 
   render: function () {    
-    this.$el.html(this.template());
-    this.$el.append(this.paymentModal.render().el);
+    this.$el.html(this.template());    
     this.$el.find('#departCityWidgetCont').html(this.departCityWidget.render().el);
     this.$el.find('#destinCityWidgetCont').html(this.destinCityWidget.render().el);
     this.$el.find('#shippOptionsWidgetCont').html(this.shippOptionsWidget.render().el);
-    
+
     return this;
   },
 
@@ -31,15 +28,24 @@ APP.CalcView = Backbone.View.extend({
   submit: function() { 
     this._setModel();
 
-    if(this.model.isValid()) {
-      console.log('no validat errors');
+    if(this.model.isValid()) { 
+      if(!this.paymentModal) { 
+        this.paymentModal = new APP.PaymentModalView();         
+      };
+
+      this.$el.append(this.paymentModal.render({price: this._computePrice()}).el);
+
       $('#paymentModal').modal('show') 
-    } else {      
-      console.log('validat errors');
-      //console.log(validErrArr);
     };    
 
     this._errMsgManage();
+  },
+
+  _computePrice: function() { 
+    var weight = this.model.get('shippOptionsWeight'),
+        volume = this.model.get('shippOptionsVolume');
+
+    return parseInt((weight + volume) / 20, 10);
   },
 
   _setModel: function() { 
