@@ -5,6 +5,14 @@
 
     <title>shippingCalculator3</title>
 
+    <!-- jasmine -->
+    <link rel="stylesheet" href="js/jasmine/jasmine.css">
+    <script src="js/jasmine/jasmine.js"></script>
+    <script src="js/jasmine/jasmine-html.js"></script>
+    <script src="js/jasmine/boot.js"></script>
+
+    <script src="js/tests/valuesValidatorSpec.js"></script>
+
     <!-- Bootstrap core CSS -->
     <link href="js/bootstrap-3/css/bootstrap.min.css" rel="stylesheet">
 
