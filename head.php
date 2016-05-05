@@ -13,6 +13,7 @@
 
     <script src="js/tests/valuesValidatorSpec.js"></script>
     <script src="js/tests/models/modelsSpec.js"></script>
+    <script src="js/tests/views/calcWidgetViewsSpec.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="js/bootstrap-3/css/bootstrap.min.css" rel="stylesheet">
