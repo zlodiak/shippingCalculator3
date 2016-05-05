@@ -11,7 +11,7 @@ describe("CalcModel:", function() {
     this.valuesValidator = APP.valuesValidator;
   });  
 
-  it("should is defined", function() {
+  it("should exist", function() {
     expect(this.model).toBeDefined();
   });
 
@@ -46,6 +46,96 @@ describe("CalcModel:", function() {
       expect(ModelcountElems).toEqual(0);
     });    
   });
+
+
+  describe("validate", function() {
+    it("should return undefined for valid data", function() {
+      this.model._resetErr();
+
+      var validData = {
+        departCity: 'Moscow',
+        destinCity: 'New York',
+        shippOptionsWeight: 100,
+        shippOptionsVolume: 12 
+      };
+
+      expect(this.model.validate(validData)).toEqual(undefined);
+    });
+
+    it("should return something for invalid data", function() {
+      this.model._resetErr();
+
+      var inValidData = {
+        departCity: 'Moscow',
+        destinCity: 'New York',
+        shippOptionsWeight: 100,
+        shippOptionsVolume: -12 
+      };
+
+      expect(this.model.validate(inValidData)).not.toEqual(undefined);
+    });
+  });    
+
+
+  describe("_validDepartCity", function() {
+    it("should not generate errors for long string data", function() {
+      this.model._resetErr();
+      this.model._validDepartCity('string');
+
+      expect(this.model.get('errDepartCity').length).toEqual(0);      
+    });
+
+    it("should generate errors for short string data", function() {
+      this.model._resetErr();
+      this.model._validDepartCity('qw');
+
+      expect(this.model.get('errDepartCity').length).not.toEqual(0);      
+    });    
+
+    it("should generate errors for num data", function() {
+      this.model._resetErr();
+      this.model._validDepartCity(23);
+
+      expect(this.model.get('errDepartCity').length).not.toEqual(0);      
+    });    
+
+    it("should generate errors for empty data", function() {
+      this.model._resetErr();
+      this.model._validDepartCity();
+
+      expect(this.model.get('errDepartCity').length).not.toEqual(0);      
+    });            
+  });
+
+  describe("_validDestinCity", function() {
+    it("should not generate errors for long string data", function() {
+      this.model._resetErr();
+      this.model._validDestinCity('string');
+
+      expect(this.model.get('errDestinCity').length).toEqual(0);      
+    });
+
+    it("should generate errors for short string data", function() {
+      this.model._resetErr();
+      this.model._validDestinCity('qw');
+
+      expect(this.model.get('errDestinCity').length).not.toEqual(0);      
+    });    
+
+    it("should generate errors for num data", function() {
+      this.model._resetErr();
+      this.model._validDestinCity(23);
+
+      expect(this.model.get('errDestinCity').length).not.toEqual(0);      
+    });    
+
+    it("should generate errors for empty data", function() {
+      this.model._resetErr();
+      this.model._validDestinCity();
+
+      expect(this.model.get('errDestinCity').length).not.toEqual(0);      
+    });            
+  });        
 });
 
 
