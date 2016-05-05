@@ -1,18 +1,19 @@
 describe("CalcModel:", function() {
-    var DATA = {
-      errDepartCity: ['qwerty', 'asdfgh'],
-      errDestinCity: ['qwerty', 'asdfgh'],
-      errShippOptionsWeight: ['qwerty', 'asdfgh'],
-      errShippOptionsVolume: ['qwerty', 'asdfgh']
-    }
+  var DATA = {
+    errDepartCity: ['qwerty', 'asdfgh'],
+    errDestinCity: ['qwerty', 'asdfgh'],
+    errShippOptionsWeight: ['qwerty', 'asdfgh'],
+    errShippOptionsVolume: ['qwerty', 'asdfgh']
+  };
 
-    beforeEach(function() {
-      this.model = new APP.CalcModel(DATA);
-    });  
+  beforeEach(function() {
+    this.model = new APP.CalcModel(DATA);
+    this.valuesValidator = APP.valuesValidator;
+  });  
 
-    it("should is defined", function() {
-      expect(this.model).toBeDefined();
-    });
+  it("should is defined", function() {
+    expect(this.model).toBeDefined();
+  });
 
 
   describe("_resetErr", function() {
@@ -42,11 +43,10 @@ describe("CalcModel:", function() {
 
       var DATAcountElem = DATA.errDepartCity.length;    
 
-      expect(ModelcountElems).toEqual(0)
+      expect(ModelcountElems).toEqual(0);
     });    
   });
 });
 
 
 
-//_resetErr
