@@ -7,7 +7,6 @@
 <script src="js/project/views/calcWidgetViews.js"></script> 
 <script src="js/project/views/calcViews.js"></script> 
 <script src="js/project/valuesValidator.js"></script> 
-<script src="js/project/helper.js"></script> 
 
 <script>
   var app = new APP.CalcView({el: '#shippCalc'});

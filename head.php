@@ -12,6 +12,7 @@
     <script src="js/jasmine/boot.js"></script>
 
     <script src="js/tests/valuesValidatorSpec.js"></script>
+    <script src="js/tests/models/modelsSpec.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="js/bootstrap-3/css/bootstrap.min.css" rel="stylesheet">
