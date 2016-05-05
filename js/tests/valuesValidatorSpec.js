@@ -68,3 +68,41 @@ describe("isNumCheck", function() {
     expect(APP.valuesValidator.isNumCheck(undefined)).not.toEqual(errorMessage);
   });         
 });
+
+
+describe("isStrCheck", function() {
+  var errorMessage = 'Это значение должно быть цифрой';
+
+  it("should return errormessage for string", function() {
+    expect(APP.valuesValidator.isStrCheck('string')).toEqual(errorMessage);
+  });
+
+  it("should return errormessage for boolean", function() {
+    expect(APP.valuesValidator.isStrCheck(true)).toEqual(errorMessage);
+  });    
+
+  it("should not return errormessage for float", function() {
+    expect(APP.valuesValidator.isStrCheck(444.45)).not.toEqual(errorMessage);
+  });  
+
+  it("should not return errormessage for number", function() {
+    expect(APP.valuesValidator.isStrCheck(23)).not.toEqual(errorMessage);
+  });        
+});
+
+
+describe("lowLengthCheck", function() {
+  var errorMessage = 'Это значение не может быть таким коротким';
+
+  it("should return errormessage for short string", function() {
+    expect(APP.valuesValidator.lowLengthCheck('we', 3)).toEqual(errorMessage);
+  });
+
+  it("should return errormessage for short string", function() {
+    expect(APP.valuesValidator.lowLengthCheck('www', 3)).toEqual(errorMessage);
+  });  
+
+  it("should not return errormessage for long string", function() {
+    expect(APP.valuesValidator.lowLengthCheck('string', 3)).not.toEqual(errorMessage);
+  });  
+});
