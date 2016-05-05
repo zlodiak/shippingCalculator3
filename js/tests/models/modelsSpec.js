@@ -11,7 +11,7 @@ describe("CalcModel:", function() {
     this.valuesValidator = APP.valuesValidator;
   });  
 
-  it("should exist", function() {
+  it("should init successful", function() {
     expect(this.model).toBeDefined();
   });
 
@@ -107,6 +107,7 @@ describe("CalcModel:", function() {
     });            
   });
 
+
   describe("_validDestinCity", function() {
     it("should not generate errors for long string data", function() {
       this.model._resetErr();
@@ -135,7 +136,45 @@ describe("CalcModel:", function() {
 
       expect(this.model.get('errDestinCity').length).not.toEqual(0);      
     });            
-  });        
+  }); 
+
+
+  describe("_validShippOptionsWeight", function() {
+    it("should not generate errors for positive number data", function() {
+      this.model._resetErr();
+      this.model._validShippOptionsWeight(122);
+
+      expect(this.model.get('errShippOptionsWeight').length).toEqual(0);      
+    });
+
+    it("should generate errors for negative number data", function() {
+      this.model._resetErr();
+      this.model._validShippOptionsWeight('qw');
+
+      expect(this.model.get('errShippOptionsWeight').length).not.toEqual(0);      
+    });    
+
+    it("should generate errors for zero number data", function() {
+      this.model._resetErr();
+      this.model._validShippOptionsWeight(0);
+
+      expect(this.model.get('errShippOptionsWeight').length).not.toEqual(0);      
+    });  
+
+    it("should generate errors for string data", function() {
+      this.model._resetErr();
+      this.model._validShippOptionsWeight(0);
+
+      expect(this.model.get('errShippOptionsWeight').length).not.toEqual(0);      
+    });  
+
+    it("should generate errors for empty data", function() {
+      this.model._resetErr();
+      this.model._validShippOptionsWeight('');
+
+      expect(this.model.get('errShippOptionsWeight').length).not.toEqual(0);      
+    });          
+  });          
 });
 
 

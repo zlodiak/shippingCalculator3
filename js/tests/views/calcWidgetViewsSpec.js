@@ -3,7 +3,7 @@ describe("DepartCityView:", function() {
     this.view = new APP.DepartCityView();
   });  
   
-  it ('should exist', function () {
+  it ('should init successful', function () {
     expect(this.view).toBeDefined();
   }); 
 
