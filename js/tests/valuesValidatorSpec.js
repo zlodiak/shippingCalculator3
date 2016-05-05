@@ -25,3 +25,19 @@ describe("minusNumCheck", function() {
     expect(APP.valuesValidator.minusNumCheck(0)).not.toEqual(errorMessage);
   });    
 });
+
+describe("nullNumCheck", function() {
+  var errorMessage = 'Это значение не может быть равно нулю';
+
+  it("should return errormessage for null value", function() {
+    expect(APP.valuesValidator.nullNumCheck(0)).toEqual(errorMessage);
+  });
+
+  it("should not return errormessage for positive value", function() {
+    expect(APP.valuesValidator.nullNumCheck(55)).not.toEqual(errorMessage);
+  }); 
+
+  it("should not return errormessage for negative value", function() {
+    expect(APP.valuesValidator.nullNumCheck(-55)).not.toEqual(errorMessage);
+  });       
+});
