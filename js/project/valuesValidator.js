@@ -35,5 +35,12 @@ APP.valuesValidator = {
     if($.trim(value).length <= lowLimit) { 
       return 'Это значение не может быть таким коротким'; 
     };
-  },   
+  }, 
+
+  doubleStrCheck: function(string1, string2) { 
+    var string1 = $.trim(string1),
+        string2 = $.trim(string2);
+
+    if(string1 === string1) { return 'Это значение дублируется' };
+  }    
 }
