@@ -69,9 +69,8 @@ APP.CalcView = Backbone.View.extend({
 
     for(prop in validErrArr) { 
       var msgCont = this.$el.find('#errMsg_' + prop);      
-      for(key in validErrArr[prop]) { msgCont.append(validErrArr[prop][key]) };
+      for(key in validErrArr[prop]) { msgCont.append(validErrArr[prop][key] + '\n') };
     };
-
   } 
 
 });

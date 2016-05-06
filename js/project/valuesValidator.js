@@ -41,6 +41,6 @@ APP.valuesValidator = {
     var string1 = $.trim(string1),
         string2 = $.trim(string2);
 
-    if(string1 === string1) { return 'Это значение дублируется' };
+    if(string1 == string2) { return 'Это значение дублируется' };
   }    
 }

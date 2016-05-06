@@ -16,7 +16,7 @@ APP.CalcModel = Backbone.Model.extend({
     this._resetErr();
 
     this._validDepartCity(attrs.departCity);
-    this._validDestinCity(attrs.destinCity);
+    this._validDestinCity(attrs.destinCity, attrs.departCity);
     this._validShippOptionsWeight(attrs.shippOptionsWeight);
     this._validShippOptionsVolume(attrs.shippOptionsVolume);
 
@@ -54,14 +54,16 @@ APP.CalcModel = Backbone.Model.extend({
     };
   },
 
-  _validDestinCity: function(city) { 
-    var emptyCheck = APP.valuesValidator.emptyCheck(city), 
-        isNumCheck = APP.valuesValidator.isNumCheck(city),
-        lowLengthCheck = APP.valuesValidator.lowLengthCheck(city, 3);
+  _validDestinCity: function(destinCity, departCity) { 
+    var emptyCheck = APP.valuesValidator.emptyCheck(destinCity), 
+        isNumCheck = APP.valuesValidator.isNumCheck(destinCity),
+        lowLengthCheck = APP.valuesValidator.lowLengthCheck(destinCity, 3),
+        doubleStrCheck = APP.valuesValidator.doubleStrCheck(destinCity, departCity);
 
     if(emptyCheck) { this.get('errDestinCity').push(emptyCheck) } else { 
       if(isNumCheck) { this.get('errDestinCity').push(isNumCheck) } else { 
         if(lowLengthCheck) { this.get('errDestinCity').push(lowLengthCheck) };
+        if(doubleStrCheck) { this.get('errDestinCity').push(doubleStrCheck) };
       };               
     };
   },  
