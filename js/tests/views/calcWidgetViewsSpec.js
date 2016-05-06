@@ -7,12 +7,10 @@ describe("DepartCityView:", function() {
     expect(this.view).toBeDefined();
   }); 
 
-/*  it ("produces the correct HTML", function() {
+  it ("produces the correct HTML", function() {
+    this.view.render();
 
-      this.view.render();
-
-      expect(this.view.$el.find("#errMsg_departCity_")).toExist();
-      //expect(this.view.template).toBeDefined();
-
-  }); */
+    var id = this.view.$el.attr('id');
+    expect(id).toEqual('departCityWidget');
+  }); 
 });
