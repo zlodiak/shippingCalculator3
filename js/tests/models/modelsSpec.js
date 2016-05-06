@@ -111,7 +111,7 @@ describe("CalcModel:", function() {
   describe("_validDestinCity", function() {
     it("should not generate errors for long string data", function() {
       this.model._resetErr();
-      this.model._validDestinCity('string');
+      this.model._validDestinCity('string1');
 
       expect(this.model.get('errDestinCity').length).toEqual(0);      
     });
@@ -135,7 +135,21 @@ describe("CalcModel:", function() {
       this.model._validDestinCity();
 
       expect(this.model.get('errDestinCity').length).not.toEqual(0);      
-    });            
+    });  
+
+    it("should generate errors for double strings data", function() {
+      this.model._resetErr();
+      this.model._validDestinCity('string1', 'string1');
+
+      expect(this.model.get('errDestinCity').length).not.toEqual(0);      
+    });  
+
+    it("should not generate errors for various strings data", function() {
+      this.model._resetErr();
+      this.model._validDestinCity('string1', 'string2');
+
+      expect(this.model.get('errDestinCity').length).toEqual(0);      
+    });                      
   }); 
 
 
